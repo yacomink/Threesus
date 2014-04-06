@@ -231,7 +231,6 @@ namespace Threesus.Bots
 		/// Returns the card index of the card at the specified cell.
 		/// 0 means no card there. Use FastLookups to look up values associated with the index.
 		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public ulong GetCardIndex(int x, int y)
 		{
 			int lookupIndex = x + 4 * y;
@@ -242,7 +241,6 @@ namespace Threesus.Bots
 		/// Returns the card index of the card at the specified cell.
 		/// 0 means no card there. Use FastLookups to look up values associated with the index.
 		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public ulong GetCardIndex(IntVector2D cell)
 		{
 			return GetCardIndex(cell.X, cell.Y);
@@ -252,7 +250,6 @@ namespace Threesus.Bots
 		/// Sets the card index of the card at the specified cell.
 		/// 0 means no card there. Use FastLookups to look up values associated with the index.
 		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public void SetCardIndex(int x, int y, ulong cardIndex)
 		{
 			int lookupIndex = x + 4 * y;
@@ -263,7 +260,6 @@ namespace Threesus.Bots
 		/// Sets the card index of the card at the specified cell.
 		/// 0 means no card there. Use FastLookups to look up values associated with the index.
 		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public void SetCardIndex(IntVector2D cell, ulong cardIndex)
 		{
 			SetCardIndex(cell.X, cell.Y, cardIndex);
@@ -949,7 +945,7 @@ namespace Threesus.Bots
 		/// Returns whether the specified cards can merge together.
 		/// Assumes that neither card index is 0.
 		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		
 		public static bool CanCardsMerge(ulong sourceCardIndex, ulong destCardIndex)
 		{
 			ulong arrayLookup = sourceCardIndex | (destCardIndex << 4);

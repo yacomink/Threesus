@@ -21,12 +21,12 @@ namespace Threesus
 			Deck deck = new Deck(new Rand());
 			Board board = new Board();
 			Console.WriteLine("Let's initialize the board...");
-			Console.WriteLine("The format for each line should be four characters, each a 1, 2, 3, or any other character to represent an empty space.");
+			Console.WriteLine("The format for each line should be four comma-delimited numbers, using a 0 for an empty space");
 			for(int y = 0; y < board.Height; y++)
 			{
 				Console.Write("Enter row {0}: ", y);
-				string rowStr = Console.ReadLine();
-				if(rowStr.Length != board.Width)
+				String[] rows = Console.ReadLine().Split(',');
+				if(rows.Length != board.Width)
 				{
 					Console.WriteLine("Invalid length of entered row.");
 					y--;
@@ -35,7 +35,7 @@ namespace Threesus
 
 				for(int x = 0; x < board.Width; x++)
 				{
-					Card card = GetCardFromChar(rowStr[x], false);
+					Card card = GetCardFromString(rows[x], false);
 					if(card != null)
 					{
 						board[x, y] = card;
@@ -170,23 +170,65 @@ namespace Threesus
 		/// <summary>
 		/// Gets the card that is indicated by the specified character.
 		/// </summary>
-		private static Card GetCardFromChar(char c, bool allowBonusCard)
+		private static Card GetCardFromString(string c, bool allowBonusCard)
 		{
 			switch(c)
 			{
-				case '1':
+			case "1":
 					return new Card(1, -1);
-				case '2':
+			case "2":
 					return new Card(2, -2);
-				case '3':
+			case "3":
 					return new Card(3, -1);
-				case '+':
+			case "+":
 					if(allowBonusCard)
 						return new Card(-1, -1);
 					else
 						return null;
+			case "6":
+					return new Card (6, -1);
+			case "12":
+					return new Card (12, -1);
+			case "24":
+					return new Card (24, -1);
+			case "48":
+					return new Card (48, -1);
+			case "96":
+					return new Card (96, -1);
+			case "192":
+					return new Card (192, -1);
+			case "384":
+					return new Card (384, -1);
+			case "768":
+					return new Card (768, -1);
+			case "1536":
+					return new Card (1536, -1);
+			case "3072":
+					return new Card (3072, -1);
+			case "6144":
+					return new Card (6144, -1);
 				default:
 					return null;
+			}
+		}
+
+		private static Card GetCardFromChar(char c, bool allowBonusCard)
+		{
+			switch(c)
+			{
+			case '1':
+				return new Card(1, -1);
+			case '2':
+				return new Card(2, -2);
+			case '3':
+				return new Card(3, -1);
+			case '+':
+				if(allowBonusCard)
+					return new Card(-1, -1);
+				else
+					return null;
+			default:
+				return null;
 			}
 		}
 

@@ -25,7 +25,6 @@ namespace Threesus
 		/// <summary>
 		/// Creates a new IntVector2D from the specified x and y values.
 		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public IntVector2D(int x, int y)
 		{
 			X = x;
@@ -49,7 +48,7 @@ namespace Threesus
 		/// <summary>
 		/// Returns whether this IntVector2D is equal to the specified IntVector2D.
 		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		
 		public bool Equals(IntVector2D v)
 		{
 			return X == v.X && Y == v.Y;
@@ -66,7 +65,7 @@ namespace Threesus
 		/// <summary>
 		/// Compares this vector to the specified IntVector2D.
 		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		
 		public int CompareTo(IntVector2D v)
 		{
 			int result = X.CompareTo(v.X);
@@ -78,7 +77,7 @@ namespace Threesus
 		/// <summary>
 		/// Returns the hash code for this IntVector2D.
 		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		
 		public override int GetHashCode()
 		{
 			unchecked
@@ -93,7 +92,7 @@ namespace Threesus
 		/// <summary>
 		/// Returns an IntVector2D perpendicular to this IntVector2D.
 		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		
 		public IntVector2D Perp()
 		{
 			return new IntVector2D(-Y, X);
@@ -113,7 +112,7 @@ namespace Threesus
 		/// <summary>
 		/// Computes the dot product of v1 and v2 and returns the resulting value.
 		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		
 		public static int DotProduct(IntVector2D v1, IntVector2D v2)
 		{
 			return v1.X * v2.X + v1.Y * v2.Y;
@@ -122,7 +121,7 @@ namespace Threesus
 		/// <summary>
 		/// Computes the cross product of v1 and v2 and returns the resulting value.
 		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		
 		public static int CrossProduct(IntVector2D v1, IntVector2D v2)
 		{
 			return v1.X * v2.Y - v2.X * v1.Y;
@@ -131,7 +130,7 @@ namespace Threesus
 		/// <summary>
 		/// Performs a component-wise multiplication of the specified Vectors.
 		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		
 		public static IntVector2D ComponentMultiply(IntVector2D v1, IntVector2D v2)
 		{
 			return new IntVector2D(v1.X * v2.X, v1.Y * v2.Y);
@@ -143,7 +142,7 @@ namespace Threesus
 		/// <summary>
 		/// Returns whether the specified Vectors are equal.
 		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		
 		public static bool operator ==(IntVector2D v1, IntVector2D v2)
 		{
 			return v1.X == v2.X && v1.Y == v2.Y;
@@ -152,7 +151,7 @@ namespace Threesus
 		/// <summary>
 		/// Returns whether the specified Vectors are not equal.
 		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		
 		public static bool operator !=(IntVector2D v1, IntVector2D v2)
 		{
 			return v1.X != v2.X || v1.Y != v2.Y;
@@ -161,7 +160,7 @@ namespace Threesus
 		/// <summary>
 		/// Returns the summation of the specified vectors.
 		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		
 		public static IntVector2D operator +(IntVector2D v1, IntVector2D v2)
 		{
 			v1.X += v2.X;
@@ -172,7 +171,7 @@ namespace Threesus
 		/// <summary>
 		/// Returns the subtraction of v2 from v1.
 		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		
 		public static IntVector2D operator -(IntVector2D v1, IntVector2D v2)
 		{
 			v1.X -= v2.X;
@@ -183,7 +182,7 @@ namespace Threesus
 		/// <summary>
 		/// Returns the negation of the specified IntVector2D.
 		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		
 		public static IntVector2D operator -(IntVector2D v)
 		{
 			v.X = -v.X;
@@ -194,7 +193,7 @@ namespace Threesus
 		/// <summary>
 		/// Returns the component-wise multiplication of the specified IntVector2D and factor.
 		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		
 		public static IntVector2D operator *(IntVector2D v, int factor)
 		{
 			v.X *= factor;
@@ -205,7 +204,7 @@ namespace Threesus
 		/// <summary>
 		/// Returns the component-wise multiplication of the specified factor and IntVector2D.
 		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		
 		public static IntVector2D operator *(int factor, IntVector2D v)
 		{
 			v.X *= factor;
@@ -216,7 +215,7 @@ namespace Threesus
 		/// <summary>
 		/// Returns the component-wise division of the specified IntVector2D numerator by the specified denominator.
 		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		
 		public static IntVector2D operator /(IntVector2D v, int denominator)
 		{
 			v.X /= denominator;
@@ -227,7 +226,7 @@ namespace Threesus
 		/// <summary>
 		/// Returns the component-wise division of the specified numerator by the specified IntVector2D denominator.
 		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		
 		public static IntVector2D operator /(int numerator, IntVector2D v)
 		{
 			v.X = numerator / v.X;
